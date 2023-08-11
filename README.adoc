@@ -2,9 +2,9 @@
 
 image::images/screenshot.png[CulinaryQuery Screenshot, title="CulinaryQuery Screenshot"]
 
-== Introduction
-
 The CulinaryQuery project aims to seamlessly integrate OpenAI's ChatGPT into a Django application, enabling automated question generation for menu items based on their descriptions. This repository provides the necessary components and documentation to achieve this integration, including setting up scheduled tasks, building API endpoints, and storing generated questions in a database.
+
+The project is currently hosted on PythonAnyWhere server for testing purpose : https://culinaryquery.pythonanywhere.com/
 
 The API endpoints will serve multiple purposes: 
 
@@ -28,15 +28,15 @@ The API endpoints will serve multiple purposes:
 | Retrieve, update, or delete a specific menu item.
 | GET, PUT, DELETE
 
-| `/api/questions/generate/`
+| `/api/generate-questions/`
 | Generate questions for specified menu items based on their descriptions.
 | POST
 
-| `/api/questions/pre-generated/{pk}/`
+| `/api/suggest-questions/{pk}/`
 | Fetch pre-generated questions for a specific menu item.
 | GET
 
-| `/api/questions/generate-from-text/`
+| `/api/generate-question/`
 | Generate a question based on provided text.
 | POST
 |===
