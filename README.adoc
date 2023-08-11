@@ -1,4 +1,4 @@
-#  CulinaryQuery: 
+#  CulinaryQuery: Automated Menu Item Question Generator
 Automated Menu Item Question Generator
 =  CulinaryQuery: Automated Menu Item Question Generator: 
 :toc:
