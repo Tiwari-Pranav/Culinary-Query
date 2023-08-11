@@ -4,8 +4,46 @@ image::images/logo.png[CulinaryQuery Screenshot,width=250]
 
 **The Culinary Query** project seamlessly integrate **OpenAI's ChatGPT** into a **Django application**, enabling **automated question generation** for **menu items** based on their descriptions and ingredients. This repository provides the necessary components and documentation to achieve this integration, including setting up **scheduled tasks**, building **API endpoints**, and **storing generated questions** in a database.
 
-The project is currently hosted on PythonAnyWhere server for testing purpose : https://culinaryquery.pythonanywhere.com/
+The project is currently hosted on __PythonAnyWhere__ server for testing purpose : https://culinaryquery.pythonanywhere.com/
 
+== Website 
+
+[discrete]
+# INDEX
+
+toc::[]
+
+== Technologies Used
+
+- **Django Rest Framework**: A powerful and flexible toolkit for building Web APIs using Django.
+- **Python**: The programming language used for the backend development.
+- **MySQL**: A robust and scalable relational database for storing blog posts, user information, and related data. (provided by __PythonAnyWhere__ server)
+- **PythonAnyWhere**: The server used for testing and demonstration purposes.
+- **OpenAI API**: API for accessing new AI models developed by OpenAI.
+
+
+== Getting Started
+
+1. Clone the repository:
+
+   $ git clone https://github.com/Tiwari-Pranav/Culinary-Query
+
+   $ cd CulinaryQuery
+
+2. Set up your environment:
+
+   Install the required packages listed in requirements.txt:
+   $ pip install -r requirements.txt
+
+3. Configure OpenAI API Key:
+
+   Set your OpenAI API key in the `.env` file.
+
+4. Run the Django application:
+
+   $ python manage.py runserver
+
+5. Access the API endpoints and explore the functionality.
 
 
 == API Endpoints
@@ -49,28 +87,6 @@ NOTE: Replace `{pk}` with the actual primary key of the menu item.
     "menu_item_ids": [1, 2, 3]
   }
 
-== How to Use
-
-1. Clone the repository:
-
-   $ git clone https://github.com/Tiwari-Pranav/Culinary-Query
-
-   $ cd CulinaryQuery
-
-2. Set up your environment:
-
-   Install the required packages listed in requirements.txt:
-   $ pip install -r requirements.txt
-
-3. Configure OpenAI API Key:
-
-   Set your OpenAI API key in the `.env` file.
-
-4. Run the Django application:
-
-   $ python manage.py runserver
-
-5. Access the API endpoints and explore the functionality.
 
 == Cron Job Creation
 
@@ -122,9 +138,7 @@ A scheduled task, configured using cron jobs, automates the process of generatin
 
 The CulinaryQuery project combines the power of OpenAI's ChatGPT with Django's capabilities to create a robust system for automated question generation, storage, and retrieval. By offering versatile API endpoints, this integration provides relevant and engaging content for users, enhancing the application's utility and user experience.
 
-CulinaryQuery is a step toward creating an intelligent and interactive platform for exploring menu items through thoughtful questions and engaging interactions.
-
-Visit the official documentation for detailed setup instructions and usage guidelines.
+__CulinaryQuery is a step toward creating an intelligent and interactive platform for exploring menu items through thoughtful questions and engaging interactions.__
 
 
 image::images/openai-logo.jpg[OpenAI Logo, width=450]
