@@ -2,20 +2,20 @@
 
 image::images/screenshot.png[CulinaryQuery Screenshot, title="CulinaryQuery Screenshot"]
 
-The CulinaryQuery project aims to seamlessly integrate OpenAI's ChatGPT into a Django application, enabling automated question generation for menu items based on their descriptions. This repository provides the necessary components and documentation to achieve this integration, including setting up scheduled tasks, building API endpoints, and storing generated questions in a database.
+The CulinaryQuery project aims to seamlessly integrate OpenAI's ChatGPT into a Django application, enabling automated question generation for menu items based on their descriptions and ingredients. This repository provides the necessary components and documentation to achieve this integration, including setting up scheduled tasks, building API endpoints, and storing generated questions in a database.
 
 The project is currently hosted on PythonAnyWhere server for testing purpose : https://culinaryquery.pythonanywhere.com/
 
-The API endpoints will serve multiple purposes: 
+
+
+== API Endpoints
+
+The Django application exposes several API endpoints, catering to different use cases:
 
 - On-Demand Question Generation: Users can request the API to generate questions for specific menu items. ChatGPT utilizes menu item descriptions to create questions, which are then stored in the database.
 - Fetching Pre-Generated Questions: An API endpoint enables users to retrieve pre-generated questions from the database for a given menu item. This feature is particularly useful when questions have already been generated and stored.
 - Generating Questions from Text: Users can input any text, and the API will generate a relevant question based on that text. This functionality extends the application's use beyond menu item descriptions.
 
-
-== API Endpoints
-
-// === API Endpoints
 
 |===
 | Endpoint Name | Purpose | Methods Allowed
@@ -43,24 +43,11 @@ The API endpoints will serve multiple purposes:
 
 NOTE: Replace `{pk}` with the actual primary key of the menu item.
 
-
-The Django application exposes several API endpoints, catering to different use cases:
-
-- Generating Questions for Menu Items
-  Users can request the API to generate questions for specific menu items. ChatGPT utilizes menu item descriptions to create questions, which are then stored in the database.
-
-  
- On-Demand Question Generation: You can send a POST request to the `generate-questions` API to generate questions for multiple menu items. The format for sending data is as follows:
+    On-Demand Question Generation: You can send a POST request to the `generate-questions` API to generate questions for multiple menu items. The format for sending data is as follows:
   ```json
   {
     "menu_item_ids": [1, 2, 3]
   }
-
-- Fetching Pre-Generated Questions
-  An API endpoint enables users to retrieve pre-generated questions from the database for a given menu item. This feature is particularly useful when questions have already been generated and stored.
-
-- Generating Questions from Text
-  Users can input any text, and the API will generate a relevant question based on that text. This functionality extends the application's use beyond menu item descriptions.
 
 == How to Use
 
