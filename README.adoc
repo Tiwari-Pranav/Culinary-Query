@@ -26,9 +26,9 @@ The core engine behind question generation is OpenAI's ChatGPT model. This model
 
 A scheduled task, configured using cron jobs, automates the process of generating questions for menu items. This ensures that the question database remains up-to-date with relevant and current questions.
 
-=== API Endpoints
-
 == API Endpoints
+
+=== API Endpoints
 
 |===
 | Endpoint Name | Purpose | Methods Allowed
