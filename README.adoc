@@ -1,6 +1,6 @@
 = CulinaryQuery: Automated Menu Item Question Generator
 
-image::images/logo.png[CulinaryQuery Screenshot]
+image::images/logo.png[CulinaryQuery Screenshot,width=200]
 
 The CulinaryQuery project aims to seamlessly integrate OpenAI's ChatGPT into a Django application, enabling automated question generation for menu items based on their descriptions and ingredients. This repository provides the necessary components and documentation to achieve this integration, including setting up scheduled tasks, building API endpoints, and storing generated questions in a database.
 
