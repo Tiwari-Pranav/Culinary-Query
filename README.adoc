@@ -1,4 +1,8 @@
-= CulinaryQuery: Automated Menu Item Question Generator
+#  CulinaryQuery: 
+Automated Menu Item Question Generator
+=  CulinaryQuery: Automated Menu Item Question Generator: 
+:toc:
+:toc-placement!:
 
 image::images/logo.png[CulinaryQuery Screenshot,width=250]
 
