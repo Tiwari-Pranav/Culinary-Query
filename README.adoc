@@ -107,6 +107,6 @@ image::images/openai-logo.jpg[OpenAI Logo, width=450]
 image::images/django-logo.png[Django Logo, width=450]
 [cols="1,1"]
 |===
-|image::images/openai-logo.jpg[OpenAI Logo, width=400]
-|image::images/django-logo.png[Django Logo, width=400]
+| image::images/openai-logo.jpg[OpenAI Logo, width=400]
+| image::images/django-logo.png[Django Logo, width=400]
 |===
