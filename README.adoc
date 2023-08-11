@@ -62,19 +62,6 @@ The Django application exposes several API endpoints, catering to different use 
 - Generating Questions from Text
   Users can input any text, and the API will generate a relevant question based on that text. This functionality extends the application's use beyond menu item descriptions.
 
-== Project Components
-
-=== Django Framework
-
-The project is developed using the Django web framework, a powerful tool for building web applications. The application's architecture is based on Django's Model-View-Controller (MVC) pattern, allowing for organized data modeling, logic implementation, and user interface design.
-
-=== OpenAI's ChatGPT
-
-The core engine behind question generation is OpenAI's ChatGPT model. This model employs natural language processing to create meaningful and contextually relevant questions based on menu item descriptions.
-
-=== Scheduled Task: Daily Question Generation
-
-A scheduled task, configured using cron jobs, automates the process of generating questions for menu items. This ensures that the question database remains up-to-date with relevant and current questions.
 == How to Use
 
 1. Clone the repository:
@@ -92,6 +79,20 @@ A scheduled task, configured using cron jobs, automates the process of generatin
    $ python manage.py runserver
 
 5. Access the API endpoints and explore the functionality.
+
+== Project Components
+
+=== Django Framework
+
+The project is developed using the Django web framework, a powerful tool for building web applications. The application's architecture is based on Django's Model-View-Controller (MVC) pattern, allowing for organized data modeling, logic implementation, and user interface design.
+
+=== OpenAI's ChatGPT
+
+The core engine behind question generation is OpenAI's ChatGPT model. This model employs natural language processing to create meaningful and contextually relevant questions based on menu item descriptions.
+
+=== Scheduled Task: Daily Question Generation
+
+A scheduled task, configured using cron jobs, automates the process of generating questions for menu items. This ensures that the question database remains up-to-date with relevant and current questions.
 
 == Benefits and Outcomes
 
