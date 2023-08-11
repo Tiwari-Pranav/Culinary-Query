@@ -6,7 +6,7 @@ Automated Menu Item Question Generator
 
 image::images/logo.png[CulinaryQuery Screenshot,width=250]
 
-Introducing the **Culinary Query** project, where we've seamlessly harnessed the prowess of **OpenAI's API** and expertly woven it into a sophisticated **Django application**. The result? A __culinary innovation__ that **effortlessly generates captivating questions** for menu items, solely based on their descriptions and ingredients. This repository stands as a testament to our mastery, offering not just the necessary components and documentation, but also our ingenious approach to setting up **scheduled tasks**, **crafting impeccable API endpoint**s, and **ingeniously storing** these generated questions in a database. A culinary transformation awaits, all thanks to the ingenious fusion of technology and gastronomy.
+Introducing the **Culinary Query** project, where we've seamlessly harnessed the prowess of **OpenAI's API** and expertly woven it into a sophisticated **Django application**. The result? A __culinary innovation__ that **effortlessly generates captivating questions** for menu items, solely based on their descriptions and ingredients. From orchestrating **scheduled tasks** with finesse, crafting ingenious **API endpoints**, to architecting a database to elegantly **house these generated questions**– every aspect reflects our dedication to culinary excellence through technological ingenuity. Welcome to a project where gastronomy meets innovation, and the possibilities are as limitless as our own aspirations.
 
 The project is currently hosted on __PythonAnyWhere__ server for testing purpose : https://culinaryquery.pythonanywhere.com/
 
