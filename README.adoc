@@ -72,6 +72,28 @@ NOTE: Replace `{pk}` with the actual primary key of the menu item.
 
 5. Access the API endpoints and explore the functionality.
 
+== Cron Job Creation
+
+The daily question generation process is automated using a cron job. This ensures that the question database remains updated with relevant questions for each menu item.
+
+python manage.py generate_questions
+
+- **Linux** (using the crontab utility):
+  To schedule the `generate_questions` management command to run once daily, you can use the crontab utility.
+  - Open the crontab configuration with the command: `crontab -e`
+  - Add an entry to run the command daily at a specific time:
+    ```
+    0 2 * * * /path/to/your/python /path/to/your/manage.py generate_questions
+    ```
+
+- **Windows** (using Task Scheduler):
+  To schedule the `generate_questions` management command to run once daily on Windows, you can use the Task Scheduler.
+  - Open the Task Scheduler.
+  - Create a new task with the following settings:
+    - Program/script: Path to your Python executable (e.g., `C:\Python\python.exe`).
+    - Add arguments: Path to your manage.py and the command (`manage.py generate_questions`).
+    - Set the task to run daily at a specific time.
+
 == Project Components
 
 === Django Framework
