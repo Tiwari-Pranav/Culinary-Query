@@ -63,7 +63,7 @@ The Django application exposes several API endpoints, catering to different use 
   Users can request the API to generate questions for specific menu items. ChatGPT utilizes menu item descriptions to create questions, which are then stored in the database.
 
   
-**On-Demand Question Generation:** You can send a POST request to the `generate-questions` API to generate questions for multiple menu items. The format for sending data is as follows:
+ *On-Demand Question Generation:* You can send a POST request to the `generate-questions` API to generate questions for multiple menu items. The format for sending data is as follows:
   ```json
   {
     "menu_item_ids": [1, 2, 3]
