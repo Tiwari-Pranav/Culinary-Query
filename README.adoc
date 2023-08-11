@@ -79,6 +79,7 @@ The daily question generation process is automated using a cron job. This ensure
 python manage.py generate_questions
 
 - **Linux** (using the crontab utility):
+
   To schedule the `generate_questions` management command to run once daily, you can use the crontab utility.
   - Open the crontab configuration with the command: `crontab -e`
   - Add an entry to run the command daily at a specific time:
@@ -87,6 +88,7 @@ python manage.py generate_questions
     ```
 
 - **Windows** (using Task Scheduler):
+
   To schedule the `generate_questions` management command to run once daily on Windows, you can use the Task Scheduler.
   - Open the Task Scheduler.
   - Create a new task with the following settings:
