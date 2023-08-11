@@ -103,5 +103,5 @@ CulinaryQuery is a step toward creating an intelligent and interactive platform 
 Visit the official documentation for detailed setup instructions and usage guidelines.
 
 
-image::images/openai-logo.png[OpenAI Logo, width=150]
-image::images/django-logo.png[Django Logo, width=150]
+image::images/openai-logo.png[OpenAI Logo, width=500]
+image::images/django-logo.png[Django Logo, width=500]
