@@ -1,6 +1,6 @@
-#  CulinaryQuery: Automated Menu Item Question Generator
+#  Culinary-Query
 Automated Menu Item Question Generator
-=  CulinaryQuery: Automated Menu Item Question Generator: 
+=  Culinary-Query: Automated Menu Item Question Generator: 
 :toc:
 :toc-placement!:
 
