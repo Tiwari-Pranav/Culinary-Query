@@ -132,6 +132,13 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-CRONJOBS = [
-    ('0 0 * * *', 'chat_menu.management.commands.generate_questions', '>> /tmp/generate_questions.log')
-]
+CELERY_BROKER_URL = 'redis://localhost:6379/0'  # Update with your broker URL
+CELERY_RESULT_BACKEND = 'json'
+
+# Set the CELERY_BEAT_SCHEDULE
+CELERY_BEAT_SCHEDULE = {
+    'generate_questions_daily': {
+        'task': 'chat_menu.tasks.generate_questions_command_task',
+        'schedule': 24 * 60 * 60,  # Run every 24 hours
+    },
+}

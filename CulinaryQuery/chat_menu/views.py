@@ -25,6 +25,7 @@ class MenuItemDetailAPIView(generics.RetrieveUpdateDestroyAPIView):
     serializer_class=MenuItemSerializer
     
 
+    
 class GenerateQuestionsAPIView(APIView):
     '''View for generating and saving questions for menu items'''
     
@@ -33,24 +34,33 @@ class GenerateQuestionsAPIView(APIView):
         try:
             menu_item_ids = request.data.get("menu_item_ids", [])
             
-            #Filter the menu items for which questions have to be generated
+            # Filter the menu items for which questions have to be generated
             menu_items = MenuItem.objects.filter(id__in=menu_item_ids)
             
-            generated_questions = []
-
-            for menu_item in menu_items:
-                # Generate questions using the GPT-3 instance
-                questions = gpt3_instance.generate_questions(menu_item)
-                for question_text in questions:
-                    if question_text:
-                        generated_questions.append(Question(menu_item=menu_item, question_text=question_text))
+            # Generate questions using the GPT-3 instance
+            questions_data = gpt3_instance.generate_questions(menu_items)
             
-            if generated_questions:
-                try:
-                    created_questions = Question.objects.bulk_create(generated_questions)
-                    return Response({"message": "Questions generated and saved."}, status=status.HTTP_201_CREATED)
-                except Exception as bulk_create_error:
-                    return Response({"message": "Failed to save generated questions.", "error": str(bulk_create_error)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+            if questions_data:
+                generated_questions = []
+                
+                for menu_item_name, questions in questions_data:
+                    try:
+                        menu_item = MenuItem.objects.get(name=menu_item_name)
+                        for question_text in questions:
+                            if question_text:
+                                generated_questions.append(Question(menu_item=menu_item, question_text=question_text))
+                    except MenuItem.DoesNotExist:
+                        pass
+
+            
+                if generated_questions:
+                    try:
+                        Question.objects.bulk_create(generated_questions)
+                        return Response({"message": "Questions generated and saved."}, status=status.HTTP_201_CREATED)
+                    except Exception as bulk_create_error:
+                        return Response({"message": "Failed to save generated questions.", "error": str(bulk_create_error)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+                else:
+                    return Response({"message": "Failed to generate questions."}, status=status.HTTP_400_BAD_REQUEST)
             else:
                 return Response({"message": "Failed to generate questions."}, status=status.HTTP_400_BAD_REQUEST)
 
@@ -59,6 +69,7 @@ class GenerateQuestionsAPIView(APIView):
                 {'message': 'An error occurred while generating questions.', 'error': str(e)},
                 status=status.HTTP_500_INTERNAL_SERVER_ERROR
             )
+            
             
 # View for fetching pre-generated questions for a specific menu item
 class PreGeneratedQuestionsAPIView(APIView):

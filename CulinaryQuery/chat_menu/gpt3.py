@@ -5,51 +5,57 @@ class GenerateQuestions:
         self.api_key = api_key
         self.api_url = "https://api.openai.com/v1/engines/text-davinci-003/completions"
 
-    def generate_questions(self, menu_item):
-        # Set the headers for the API request
+    def process_response(self, response, menu_items):
+        choices = response.json()["choices"]
+        response_text = choices[0]["text"]
+        
+        # Split the response by "Questions for" to separate menu items
+        menu_item_sections = response_text.split("Questions for ")[1:]
+        
+        questions_per_menu_item = []
+        for section in menu_item_sections:
+            lines = section.strip().split("\n")
+            menu_item_name = lines[0].strip(": ")
+            questions = []
+            for line in lines[1:]:
+                parts = line.split(". ")
+                if len(parts) > 1:
+                    question = parts[1]
+                    questions.append(question)
+            questions_per_menu_item.append((menu_item_name, questions))
+        print (questions_per_menu_item)
+        return questions_per_menu_item
+        
+    def generate_questions(self, menu_items):
         headers = {
             "Content-Type": "application/json",
             "Authorization": f"Bearer {self.api_key}"
         }
         
-        # Create a prompt for generating questions based on menu item information
-        prompt = (
-            f"Generate three hard questions based on the following information:\n"
-            f"Menu Item Name: {menu_item.name}\n"
-            f"Ingredients: {menu_item.ingredients}\n"
-            f"Description: {menu_item.description}\n"
-            f"Questions:\n"
-            f"1. \n"
-            f"2. \n"
-            f"3. \n"
-        )
+        prompt = ""
+        for menu_item in menu_items:
+            prompt += (
+                f"Generate three questions each for the following menu item:\n"
+                f"Name: {menu_item.name}\n"
+                f"Description: {menu_item.description}\n"
+                f"Ingredients: {menu_item.ingredients}\n"
+                f"1. \n"
+                f"2. \n"
+                f"3. \n"
+                f"---\n"
+            )
 
-        # Prepare the data for the API request
         data = {
             "prompt": prompt,
-            "max_tokens": 300  # Adjust max_tokens as needed
+            "max_tokens": 1000  # Adjust max_tokens as needed
         }
-
-        # Send the API request to OpenAI
         response = requests.post(self.api_url, json=data, headers=headers)
 
         if response.status_code == 200:
-            # Extract the generated questions from the API response
-            choices = response.json()["choices"]
-            questions_text = choices[0]["text"]
-            questions = questions_text.split("\n")
-            
-            # Remove any empty or whitespace-only strings from the list
-            questions = [question.strip() for question in questions if question.strip()]
-            
-            # Remove numbers in front of questions
-            questions = [question.split(". ", 1)[1] for question in questions]
-            
-            # Return the first three generated questions
-            return questions[:3]
+            questions_per_menu_item = self.process_response(response, menu_items)
+            return questions_per_menu_item
         else:
-            # Return placeholders if the API request was unsuccessful
-            return [None, None, None]
+            return []
                 
     def generate_question_from_text(self, description):
         # Set the headers for the API request
